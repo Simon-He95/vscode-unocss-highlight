@@ -1,0 +1,154 @@
+{
+  "publisher": "simonhe",
+  "name": "vscode-unocss-highlight",
+  "displayName": "vscode-unocss-highlight",
+  "version": "0.0.0",
+  "packageManager": "pnpm@8.1.1",
+  "description": "vscode-unocss-highlight",
+  "author": "Simon He <https://github.com/Simon-He95>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/Simon-He95",
+  "homepage": "https://github.com/Simon-He95/vscode-unocss-highlight#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Simon-He95/vscode-unocss-highlight"
+  },
+  "bugs": {
+    "url": "https://github.com/Simon-He95/vscode-unocss-highlight/issues"
+  },
+  "keywords": [
+    "unocss",
+    "highlight"
+  ],
+  "sponsor": {
+    "url": "https://github.com/Simon-He95/sponsor"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/index.js",
+  "icon": "icon.png",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "Unocss Highlight",
+      "properties": {
+        "unocss-highlight.languages": {
+          "default": [
+            "html",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "vue",
+            "php",
+            "blade",
+            "svelte"
+          ],
+          "title": "language",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unocss-highlight.defaultVariantsColor": {
+          "default": "#1FAB89",
+          "title": "DefaultVariantsColor",
+          "type": "string",
+          "markdownDescription": "Default variants color."
+        },
+        "unocss-highlight.customVariantsConfig": {
+          "default": {
+            "#08D9D6": [
+              "sm",
+              "md",
+              "lg",
+              "xl",
+              "2xl"
+            ]
+          },
+          "title": "CustomVariantsConfig",
+          "type": "object",
+          "markdownDescription": "Configuration for highlighting variants. [Read more...](https://github.com/Simon-He95/vscode-unocss-highlight#unocss-highlightcustomVariantsConfig)"
+        },
+        "unocss-highlight.enabledUtilities": {
+          "default": [
+            "width",
+            "height",
+            "flex",
+            "grid",
+            "position"
+          ],
+          "title": "EnabledUtilities",
+          "markdownDescription": "List of utilities to highlight.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unocss-highlight.customUtilitiesConfig": {
+          "default": {},
+          "title": "CustomUtilitiesConfig",
+          "markdownDescription": "Configuration for highlighting utilities. [Read more...](https://github.com/Simon-He95/vscode-unocss-highlight#unocss-highlightcustomUtilitiesConfig)",
+          "type": "object",
+          "patternProperties": {
+            "^.*$": {
+              "type": "object",
+              "properties": {
+                "regex": {
+                  "type": "string",
+                  "description": "Regex to match the utility."
+                },
+                "color": {
+                  "type": "string",
+                  "description": "Color of the highlight. Style property takes precedence."
+                },
+                "style": {
+                  "type": "object",
+                  "description": "Style of the highlight."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "dev": "pnpm build --watch",
+    "test": "vitest",
+    "build": "tsup src/index.ts --external vscode",
+    "pack": "vsce package --no-dependencies",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
+    "lint:fix": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache --fix",
+    "publish": "vsce publish --no-dependencies",
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp && pnpm run publish"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.38.4",
+    "@types/node": "^18.15.11",
+    "@types/vscode": "^1.77.0",
+    "@vscode-use/utils": "^0.0.40",
+    "@vue/compiler-sfc": "^3.3.4",
+    "bumpp": "^9.1.0",
+    "eslint": "^8.37.0",
+    "esno": "^0.16.3",
+    "find-up": "^6.3.0",
+    "pnpm": "^8.1.1",
+    "rimraf": "^4.4.1",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.3",
+    "vite": "^4.2.1",
+    "vitest": "^0.29.8",
+    "vsce": "^2.15.0"
+  }
+}

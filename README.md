@@ -122,3 +122,6 @@ Configuration for highlighting variants.
   ]
 }
 ```
+
+## Thanks
+- [tailwindcss-highlight](https://github.com/ellreka/tailwindcss-highlight)

@@ -1,6 +1,6 @@
 # Unocss Highlight
 
-![](https://github.com/Simon-He95/vscode-unocss-highlight/main/assets/visual-image.png)
+![](https://github.com/Simon-He95/vscode-unocss-highlight/main/icon.png)
 
 This extension highlights the utilities of Unocss.
 

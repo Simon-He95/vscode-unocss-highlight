@@ -46,6 +46,7 @@ export class Decoration {
     this.decorators.forEach((decorator) => {
       const regex = new RegExp(decorator.regex, 'g')
       const chars: DecorationOptions[] = []
+      editor.setDecorations(decorator.decorator, chars)
       classNames.forEach((className) => {
         const utilities = getUtility(className.value, regex)
         utilities.forEach((utility) => {

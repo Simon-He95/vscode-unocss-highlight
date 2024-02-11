@@ -5,6 +5,7 @@ import { Configuration } from './utils/configuration'
 import { Decoration } from './utils/decoration'
 import { hasUnoConfig } from './utils/utils'
 
+// todo: 增强功能提示更多属性的高亮
 export async function activate(context: ExtensionContext): Promise<void> {
   if (!await hasUnoConfig())
     return

@@ -27,8 +27,11 @@ export function getClassNames(
       }
     }
   }
-  if (getActiveTextEditorLanguageId() === 'vue')
-    arr.push(...getAttr(targetText))
+  if (getActiveTextEditorLanguageId() === 'vue') {
+    const r = getAttr(targetText)
+    if (r)
+      arr.push(...r)
+  }
 
   return arr
 }
